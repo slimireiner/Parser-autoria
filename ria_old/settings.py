@@ -25,7 +25,9 @@ SECRET_KEY = 'gea#(k55_x%5e_3)zj$lp35v%89vg2nvngjx6#dr@$*av*3ua%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'krest-sale.xyz'
+]
 
 
 # Application definition
