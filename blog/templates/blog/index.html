@@ -1,0 +1,133 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <select name="kuzov">
+            <option value="all">Тип кузвоа</option>
+            {% for kuzov in kuzova %}
+            <option value="{{ kuzov }}">{{ kuzov }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="fuel">
+            <option value="all">Тип топлева</option>
+            {% for fuel in fuels %}
+            <option value="{{ fuel }}">{{ fuel }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="privod">
+            <option value="all">Тип привода</option>
+            {% for privod in privods %}
+            <option value="{{ privod }}">{{ privod }}</option>
+            {% endfor %}
+        </select>
+
+
+        <select name="transmission">
+            <option value="all">Тип трансмиссии</option>
+            {% for transmission in transmissions %}
+            <option value="{{ transmission }}">{{ transmission }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="year">
+            <option value="all">Год выпуска</option>
+            {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="year_do">
+            <option value="all">До года</option>
+            {% for year_do in year_dos %}
+            <option value="{{ year_do }}">{{ year_do }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="race">
+            <option value="all">Пробег</option>
+            {% for race in races %}
+            <option value="{{ race }}">{{ race }} тыс.км</option>
+            {% endfor %}
+        </select>
+
+        <select name="race_do">
+            <option value="all">До пробега</option>
+            {% for race_do in race_dos %}
+            <option value="{{ race_do }}">{{ race_do }} тыс.км</option>
+            {% endfor %}
+        </select>
+
+
+        <select name="usd">
+            <option value="all">Стоимость в $</option>
+            {% for usd in usds %}
+            <option value="{{ usd }}">{{ usd }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="usd_do">
+            <option value="all">До суммы в $</option>
+            {% for usd_do in usd_dos %}
+            <option value="{{ usd_do }}">{{ usd_do }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="city">
+            <option value="all">Город</option>
+            {% for city in citys %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+    </form>
+</nav>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Номер</th>
+        <th scope="col">Марка</th>
+        <th scope="col">Тип кузова</th>
+        <th scope="col">Тип топлева/Обьем ДВС</th>
+        <th scope="col">Привод</th>
+        <th scope="col">Тип трансмисси</th>
+        <th scope="col">Год выпуска</th>
+        <th scope="col">Пробег тыс.км</th>
+        <th scope="col">Цена в $</th>
+        <th scope="col">Цена в €</th>
+        <th scope="col">Цена в ₴</th>
+        <th scope="col">Город</th>
+        <th scope="col">Сылка</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for car in cars %}
+    <tr>
+        <th scope="row">{{ car.id }}</th>
+        <td>{{ car.title }}</td>
+        <td>{{ car.body_type }}</td>
+        <td>{{ car.type_fuel }}</td>
+        <td>{{ car.drive_unit }}</td>
+        <td>{{ car.type_of_drive }}</td>
+        <td>{{ car.year }}</td>
+        <td>{{ car.race }} тыс.км</td>
+        <td>{{ car.current_usd }}</td>
+        <td>{{ car.current_eur }}</td>
+        <td>{{ car.current_grn }}</td>
+        <td>{{ car.city }}</td>
+        <td><a target="_blank" rel="noopener noreferrer" href="{{ car.link }}">{{ car.link }}</a></td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
