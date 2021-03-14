@@ -11,7 +11,7 @@ class Command(BaseCommand):
         try:
             a = Try.objects.get(id=1).info1
         except:
-            a = 892
+            a = 0
 
         def get_html():
             response = requests.get(
