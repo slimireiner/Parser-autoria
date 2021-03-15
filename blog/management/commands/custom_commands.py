@@ -77,6 +77,9 @@ class Command(BaseCommand):
 
         result = True
         while result:
-            print(f'{a = }')
-            result = get_content()
-            a += 1
+            try:
+                print(f'{a = }')
+                result = get_content()
+                a += 1
+            except:
+                print('Ошибка')
