@@ -8,10 +8,7 @@ class Command(BaseCommand):
     help = 'Парсинг авториа'
 
     def handle(self, *args, **options):
-        try:
-            a = Try.objects.get(id=1).info1
-        except:
-            a = 0
+        a = 0
 
         def get_html():
             response = requests.get(
@@ -19,14 +16,7 @@ class Command(BaseCommand):
             try:
                 b = response.json()
             except:
-                print(response.text)
-                try:
-                    Try(id=1, info='car_parser', info1=a).save()
-                except:
-                    t = Try.objects.get(id=1)
-                    t.info1 = a
-                    t.save()
-                exit()
+                return False
             return b
 
         def get_content():
