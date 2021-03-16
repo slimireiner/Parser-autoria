@@ -116,3 +116,5 @@ def index(request):
                            'transmissions': transmissions, 'citys': citys})
 
 # r = requests.get('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11')
+
+#  9496a0447bd5c50e7f49957afba53f63630bbafe

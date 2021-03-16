@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 import requests
 
-from blog.models import Car, Try
+from blog.models import Car
 
 
 class Command(BaseCommand):
