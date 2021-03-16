@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 import requests
 
-from blog.models import Car
+from blog.models import Car, Try
 
 
 class Command(BaseCommand):
@@ -61,15 +61,23 @@ class Command(BaseCommand):
                     car.type_of_drive = item['autoData']['gearboxName']
                     car.body_type = item['autoData']['subCategoryNameEng']
                     car.drive_unit = item['autoData']['driveName']
-                    continue
+                    car.save()
 
             return True if len(car_ids) else False
 
         result = True
         while result:
             try:
+                try:
+                    try1 = Try.objects.get(id=1)
+                except:
+                    try1 = Try(
+                        id= 1
+                    )
+                try1.info1 = a
+                try1.save()
                 print(f'{a = }')
                 result = get_content()
                 a += 1
             except:
-                print('Ошибка')
+                print('error')

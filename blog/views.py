@@ -5,6 +5,8 @@ from .models import *
 
 def index(request):
     cars = Car.objects.all()
+    try1 = Try.objects.get(id=1)
+
 
     if request.GET.get('kuzov', None) and request.GET.get('kuzov', None) != 'all':
         cars = cars.filter(body_type=request.GET.get('kuzov'))
@@ -113,7 +115,13 @@ def index(request):
                   context={'cars': cars, 'kuzova': kuzova, 'years': years, 'usds': usds, 'usd_dos': usd_dos,
                            'year_dos': year_dos, 'races': races, 'race_dos': race_dos, 'fuels': fuels,
                            'privods': privods,
-                           'transmissions': transmissions, 'citys': citys})
+                           'transmissions': transmissions, 'citys': citys, 'try1': try1})
+
+
+
+
+
+
 
 # r = requests.get('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11')
 
