@@ -26,7 +26,8 @@ SECRET_KEY = 'gea#(k55_x%5e_3)zj$lp35v%89vg2nvngjx6#dr@$*av*3ua%'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '18.159.162.76'
+
+    '18.159.162.76',
     'ez-searchcar.xyz'
 ]
 
